@@ -6,8 +6,11 @@ const Login = () => {
     const [isSignInForm,setIsSignInForm]=useState(true);
     const toggleSignInForm=()=>{
         setIsSignInForm(!isSignInForm)
-
     }
+
+const handleButtonClick = () =>{
+    //Validate form data
+}
 
 return (
     
@@ -32,14 +35,13 @@ return (
                 className='p-4 my-4 w-full bg-[#000000b3] border border-solid border-gray-500 bg-opacity-80 rounded-md' />
             
             <button 
-                className='cursor-pointer p-3 my-2 bg-red-700 w-full rounded-md'>
+                className='cursor-pointer p-3 my-2 bg-red-700 w-full rounded-md' onClick={handleButtonClick}>
                 {isSignInForm ? "Sign In" : "Sign Up"}
                 </button>
                 <p className='cursor-pointer p-6 text-white' 
                 onClick={toggleSignInForm}>
                     {isSignInForm? "New to Netflix? Sign Up Now" : "Already registered? Sign In Now" }
                     </p>
-
         </form>
 
     </div>
