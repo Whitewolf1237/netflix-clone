@@ -9,12 +9,12 @@ const Login = () => {
 
     }
 
-  return (
+return (
     
     <div>
         <Header />
         <div className='absolute'>
-            <img src="https://assets.nflxext.com/ffe/siteui/vlv3/9c5457b8-9ab0-4a04-9fc1-e608d5670f1a/710d74e0-7158-408e-8d9b-23c219dee5df/IN-en-20210719-popsignuptwoweeks-perspective_alpha_website_small.jpg" alt='bg-pic' />
+            <img src="https://i.pinimg.com/originals/19/8b/2f/198b2f01e73b905772279616eccc7c65.jpg" alt='bg-pic' />
         </div>
         <form className='bg-[#000000b3] bg-opacity-80 rounded-lg p-12 absolute w-3/12 mt-36 mx-auto right-0 left-0 text-white'>
             <h1 
@@ -39,10 +39,11 @@ const Login = () => {
                 onClick={toggleSignInForm}>
                     {isSignInForm? "New to Netflix? Sign Up Now" : "Already registered? Sign In Now" }
                     </p>
+
         </form>
-       
+
     </div>
-  )
+)
 }
 
 export default Login
