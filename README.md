@@ -2,7 +2,10 @@
 
 - Create React App
 - Installed Tailwind
--
+- Header
+- Login Form
+- Sign Up Form
+
 
 
 # Features
