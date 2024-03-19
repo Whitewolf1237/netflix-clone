@@ -7,6 +7,9 @@
 - Login Form
 - Sign Up Form
 - Form Validation
+    - Name
+    - Email
+    - Password
 - useRef Hook usage
 
 

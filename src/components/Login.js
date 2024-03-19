@@ -12,14 +12,29 @@ const Login = () => {
     const password=useRef(null)
     const name=useRef(null)
 
+    // changes signIn and SignOut Forms 
     const toggleSignInForm=()=>{
         setIsSignInForm(!isSignInForm)
     }
 
 const handleButtonClick = () =>{
     //Validate form data
+    try{
+        if(name.current.value.length == 0){
+            setErrorMessage("Please Fill Name")
+        }
+        else{
+            const message = checkValidData(email.current.value,password.current.value)
+            setErrorMessage(message);
+        }
+    }
+    catch(e){
     const message = checkValidData(email.current.value,password.current.value)
     setErrorMessage(message);
+    }
+
+    //signIn/SignUp
+
 }
 
 return (
