@@ -73,7 +73,6 @@ const handleButtonClick = () =>{
                             photoURL:photoURL
                     })
                     )
-                    navigate("/browse")
                 })
                 .catch((error) => {
                     setErrorMessage(error.message)
@@ -95,8 +94,6 @@ const handleButtonClick = () =>{
             .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
-            console.log(user)
-            navigate("/browse")
         })
         .catch((error) => {
             const errorCode = error.code;
