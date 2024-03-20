@@ -19,7 +19,11 @@
     -Read Docs***(Create a password-based account)***
 - Setting Up Redux Store    
     - appStore
-    - userSlice -m "
+    - userSlice 
+ 
+
+# BUG FIX
+    -if user is not logged in redirect /browse to login page and vice-a-versa
 
 
 # Features

@@ -6,6 +6,7 @@ import { auth } from '../utils/firebase.js';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice.js';
+import { bgPic,userAvatar } from '../utils/constants.js';
 
 const Login = () => {
 
@@ -61,18 +62,18 @@ const handleButtonClick = () =>{
                 const user = userCredential.user;
                 updateProfile(user, {
                     displayName: name.current.value,
-                    photoURL: "https://i.pinimg.com/originals/0f/18/db/0f18db3ba96edd13f55a41b43d45e705.jpg",
+                    photoURL: userAvatar,
                 })
                     .then(() => {
                         const { uid,email,displayName,photoURL } = auth.currentUser;
                         dispatch(
                         addUser({
-                            uid:uid,
-                            email:email,
-                            displayName:displayName,
-                            photoURL:photoURL
+                            uid: uid,
+                            email: email,
+                            displayName: displayName,
+                            photoURL: photoURL,
                     })
-                    )
+                    );
                 })
                 .catch((error) => {
                     setErrorMessage(error.message)
@@ -108,7 +109,7 @@ return (
     <div>
         <Header />
         <div className='absolute'>
-            <img src="https://i.pinimg.com/originals/19/8b/2f/198b2f01e73b905772279616eccc7c65.jpg" alt='bg-pic' />
+            <img src={bgPic} alt='bg-pic' />
         </div>
         <form onSubmit={(e)=>e.preventDefault()} className='bg-[#000000b3] bg-opacity-80 rounded-lg p-12 absolute w-3/12 mt-36 mx-auto right-0 left-0 text-white'>
             <h1 
