@@ -1,6 +1,8 @@
 import React, { useRef, useState } from 'react'
 import Header from './Header'
 import {checkValidData} from '../utils/validate.js'
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from '../utils/firebase.js';
 
 
 const Login = () => {
@@ -32,13 +34,58 @@ const handleButtonClick = () =>{
     const message = checkValidData(email.current.value,password.current.value)
     setErrorMessage(message);
     }
-
+    
+    
+    const message = checkValidData(email.current.value,password.current.value)
+    
+    if(message) return; //Error exist so return no authentication needed
+    
+    // else
+    
     //signIn/SignUp
+
+    //From FireBase Documentations
+    if(!isSignInForm){
+        //For signUp Form
+            createUserWithEmailAndPassword(
+                auth, 
+                email.current.value, 
+                password.current.value
+                )
+                .then((userCredential) => {
+                // Signed up 
+                const user = userCredential.user;
+                console.log(user)
+                // ...
+            })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            setErrorMessage(errorCode+""+errorMessage)
+        });
+    }
+    else{
+        //for signIn Form
+        signInWithEmailAndPassword(
+            auth, 
+            email.current.value, 
+            password.current.value)
+            .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            console.log(user)
+            // ...
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            setErrorMessage(errorCode+""+errorMessage)
+        });
+    }
 
 }
 
-return (
-    
+return (  
     <div>
         <Header />
         <div className='absolute'>
