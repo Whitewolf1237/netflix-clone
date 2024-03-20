@@ -11,6 +11,7 @@
     - Email
     - Password
 - useRef Hook usage
+- FireBase Config
 
 
 
