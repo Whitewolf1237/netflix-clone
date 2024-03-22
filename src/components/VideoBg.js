@@ -16,6 +16,7 @@ const VideoBg = ({movieId})=>{
                 +trailerVideo?.key +
                 "?&autoplay=1&mute=1"
             } 
+            
             title="YouTube video player"
             allowFullScreen
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
