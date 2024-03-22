@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { onAuthStateChanged } from 'firebase/auth';
 import { addUser,removeUser } from '../utils/userSlice';
 import { logo } from '../utils/constants';
+import { userAvatar } from '../utils/constants';
 
 const Header = () => {
 
@@ -54,7 +55,7 @@ return (
             alt='logo'/>
         {user &&(
         <div className='flex p-2'   >
-            <img className="w-12 h-12 rounded-full" src={user.photoURL}  alt="userLogo"/>
+            <img className="w-12 h-12 rounded-full object-cover" src={userAvatar}  alt="userLogo"/>
             <button onClick={handleSignOut} className='font-bold text-white m-2'>Sign Out</button>
         </div>)}
     </div>
