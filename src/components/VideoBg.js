@@ -8,14 +8,18 @@ const VideoBg = ({movieId})=>{
     useMovieTrailer(movieId)
         return(
 
-        <div>
+        <div className="w-screen ">
             <iframe 
-            width="560" 
-            height="315" 
-            src={"https://www.youtube.com/embed/_inKs4eeHiI?si="+trailerVideo?.key} 
-            title="YouTube video player" 
+            className="w-screen  aspect-video"
+            src={
+                "https://www.youtube.com/embed/"
+                +trailerVideo?.key +
+                "?&autoplay=1&mute=1"
+            } 
+            title="YouTube video player"
+            allowFullScreen
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" 
+            referrerPolicy="strict-origin-when-cross-origin" 
             ></iframe>
 
         </div>

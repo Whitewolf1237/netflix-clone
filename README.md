@@ -20,6 +20,10 @@
 - Setting Up Redux Store    
     - appStore
     - userSlice 
+- custom hook for movie trailer
+- created movie Slice
+- TMDB api call
+- iframe User
  
 
 # BUG FIX
