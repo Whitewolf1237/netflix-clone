@@ -28,6 +28,8 @@
 - movie lists
 - secondary Container
 - GPT search page
+- MultiLingual Functionality of Search Page
+- Integrating GPT API for search
  
 
 # BUG FIX

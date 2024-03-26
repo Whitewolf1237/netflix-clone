@@ -8,12 +8,14 @@ import { addUser,removeUser } from '../utils/userSlice';
 import { SupportedLanguages, logo } from '../utils/constants';
 import { userAvatar } from '../utils/constants';
 import { toggleGptSearchView } from '../utils/gptSlice'
+import { changeLanguage } from '../utils/configSlice';
 
 const Header = () => {
 
     const dispatch= useDispatch()
     const navigate = useNavigate()
     const user = useSelector(store=>store.user)
+    const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
 
 const handleSignOut=()=>{
     signOut(auth).then(() => {
@@ -53,6 +55,9 @@ const handleSignOut=()=>{
         dispatch(toggleGptSearchView())
     }
 
+    const handleLanguageChange=(e)=>{ //capture an event
+        dispatch(changeLanguage(e.target.value))
+    }
 
 return (
     <div className='absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-between '>
@@ -60,12 +65,19 @@ return (
             alt='logo'/>
         {user &&(
         <div className='flex p-2'   >
-            <select className='p-2 bg-gray-900 text-white rounded-md m-2'>
-                {SupportedLanguages.map(lang=> <option key={lang.identifier} value={lang.identifier}>{lang.name}</option>)}
-            </select>
+            {showGptSearch && 
+            <select 
+                className='p-2 bg-gray-900 text-white rounded-md m-2' 
+                onChange={handleLanguageChange}
+                >
+                {SupportedLanguages.map((lang)=> (
+                    <option key={lang.identifier} value={lang.identifier}>
+                        {lang.name}
+                    </option>))}
+            </select>}
             <button className='py-2 px-4 mx-4 my-2 bg-white rounded-md' 
             onClick={handleGptSearchClick}
-            >GPT SEARCH</button>
+            >{showGptSearch?"HomePage":"GPT SEARCH"}</button>
             <img className="w-12 h-12 rounded-full object-cover" src={userAvatar}  alt="userLogo"/>
             <button onClick={handleSignOut} className='font-bold text-white m-2'>Sign Out</button>
         </div>)}
