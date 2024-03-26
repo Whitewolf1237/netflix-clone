@@ -16,7 +16,7 @@
 - useRef Hook usage
 - FireBase Config
 - SignUp/In in FireBase     
-    -Read Docs***(Create a password-based account)***
+    -Read Docs**(Create a password-based account)**
 - Setting Up Redux Store    
     - appStore
     - userSlice 
