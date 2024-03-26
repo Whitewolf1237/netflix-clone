@@ -33,7 +33,7 @@
  
 
 # BUG FIX
-    -if user is not logged in redirect /browse to login page and vice-a-versa
+    - if user is not logged in redirect /browse to login page and vice-a-versa
 
 
 # Features
