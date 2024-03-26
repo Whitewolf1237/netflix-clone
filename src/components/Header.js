@@ -7,6 +7,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { addUser,removeUser } from '../utils/userSlice';
 import { logo } from '../utils/constants';
 import { userAvatar } from '../utils/constants';
+import { toggleGptSearchView } from '../utils/gptSlice'
 
 const Header = () => {
 
@@ -48,6 +49,10 @@ const handleSignOut=()=>{
 
     },[])
 
+    const handleGptSearchClick=()=>{
+        dispatch(toggleGptSearchView())
+    }
+
 
 return (
     <div className='absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-between '>
@@ -55,6 +60,9 @@ return (
             alt='logo'/>
         {user &&(
         <div className='flex p-2'   >
+            <button className='py-2 px-4 mx-4 my-2 bg-white rounded-md' 
+            onClick={handleGptSearchClick}
+            >GPT SEARCH</button>
             <img className="w-12 h-12 rounded-full object-cover" src={userAvatar}  alt="userLogo"/>
             <button onClick={handleSignOut} className='font-bold text-white m-2'>Sign Out</button>
         </div>)}

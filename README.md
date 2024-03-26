@@ -24,6 +24,10 @@
 - created movie Slice
 - TMDB api call
 - iframe User
+- movie cards
+- movie lists
+- secondary Container
+- GPT search page
  
 
 # BUG FIX

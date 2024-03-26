@@ -13,8 +13,9 @@ const useMovieTrailer= (movieId)=>{
             API_OPTIONS
             ) 
         const json = await data.json()
+        
 
-        const filterData = json.results.filter(video=>video.trailer == "Trailer")  //sortlisting official trailer of the movie
+        const filterData = json.results.filter(video=>video.name == "Official Trailer")  //sortlisting official trailer of the movie
         const trailer = filterData.length ? filterData[0]:json.results[0]  //iff thiers no trailer video
         dispatch(addTrailerVideo(trailer))
     }

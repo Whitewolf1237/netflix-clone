@@ -9,7 +9,7 @@ const MainContainer = () => {
     const movies = useSelector((store) => store.movies?.nowPlayingMovies);
 
     if (!movies) return;   //early return to counter crash
-    const mainMovie = movies[0];
+    const mainMovie = movies[7];
 
 
     const { original_title, overview, id } = mainMovie;

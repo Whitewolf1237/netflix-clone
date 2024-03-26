@@ -6,6 +6,7 @@ import SecondaryContainer from './SecondaryContainer'
 import usePopularMovies from '../hooks/usePopularMovies'
 import useTopRatedMovies from '../hooks/useTopRatedMovies'
 import useUpComingMovies from '../hooks/useUpComingMovies'
+import GptSearch from './GptSearch'
 
 
 // eslint-disable-next-line no-lone-blocks
@@ -30,6 +31,7 @@ const Browse = () => {
     return (
     <div>
       <Header />
+      <GptSearch />
       <MainContainer/>
       <SecondaryContainer/>
     </div>
