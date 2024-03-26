@@ -7,6 +7,7 @@ import usePopularMovies from '../hooks/usePopularMovies'
 import useTopRatedMovies from '../hooks/useTopRatedMovies'
 import useUpComingMovies from '../hooks/useUpComingMovies'
 import GptSearch from './GptSearch'
+import { useSelector } from 'react-redux'
 
 
 // eslint-disable-next-line no-lone-blocks
@@ -22,6 +23,8 @@ import GptSearch from './GptSearch'
 }
 
 const Browse = () => {
+
+  const showGptSearchView = useSelector(store=>store.gpt.showGptSearch)
   
   useNowPlayingMovies() //tmdb api call hook for now playing movies list
   usePopularMovies()  //tmdb api call hook for popular movies list
@@ -31,9 +34,17 @@ const Browse = () => {
     return (
     <div>
       <Header />
-      <GptSearch />
-      <MainContainer/>
-      <SecondaryContainer/>
+        {showGptSearchView?(
+          <GptSearch />
+          ) : (
+              <>
+              <MainContainer/>
+              <SecondaryContainer/>
+              </>
+          )
+        }
+      
+
     </div>
   )
 }
