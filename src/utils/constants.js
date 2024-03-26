@@ -19,3 +19,5 @@ export const SupportedLanguages=[
     {identifier:"hindi",name:'Hindi'},
     {identifier:"spanish",name:'Spanish'}
 ]
+
+export const OpenAiKey="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"
