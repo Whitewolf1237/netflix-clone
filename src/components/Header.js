@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { onAuthStateChanged } from 'firebase/auth';
 import { addUser,removeUser } from '../utils/userSlice';
-import { logo } from '../utils/constants';
+import { SupportedLanguages, logo } from '../utils/constants';
 import { userAvatar } from '../utils/constants';
 import { toggleGptSearchView } from '../utils/gptSlice'
 
@@ -60,6 +60,9 @@ return (
             alt='logo'/>
         {user &&(
         <div className='flex p-2'   >
+            <select className='p-2 bg-gray-900 text-white rounded-md m-2'>
+                {SupportedLanguages.map(lang=> <option key={lang.identifier} value={lang.identifier}>{lang.name}</option>)}
+            </select>
             <button className='py-2 px-4 mx-4 my-2 bg-white rounded-md' 
             onClick={handleGptSearchClick}
             >GPT SEARCH</button>
